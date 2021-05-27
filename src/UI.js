@@ -6,6 +6,9 @@ const home = () => {
   const element = create('div')
   element.className = 'main-container'
 
+  const errorContainer = create('div')
+  errorContainer.id = 'error-container'
+
   const forecastContainer = create('div')
   forecastContainer.className = 'forecast-container'
 
@@ -56,11 +59,12 @@ const home = () => {
   searchForm.addEventListener('submit', (e) => {
     e.preventDefault();
     const city = searchForm.elements.location.value;
+    searchForm.elements.location.value = ''
     getForecast(city)
-    // add error handling
   });
 
   element.appendChild(searchForm)
+  element.appendChild(errorContainer)
   element.appendChild(forecastContainer)
   return element
 }

@@ -1,3 +1,5 @@
+const get = document.querySelector.bind(document)
+
 const filterForecast = (data) => {
   console.log(data)
   const {name: city } = data
@@ -10,7 +12,7 @@ const filterForecast = (data) => {
     feels_like,
     humidity,
   } = data.main;
-  const { main, description, icon } = data.weather[0]
+  const { main, description } = data.weather[0]
   return {
     city, 
     country,
@@ -21,22 +23,32 @@ const filterForecast = (data) => {
     humidity,
     main,
     description,
-    icon
   }
 }
 
 const displayForecast = (data) => {
-  const get = document.querySelector.bind(document)
-
   const location = get('.location')
   const mainT = get('.main-temp')
+  const maxT = get('.max-temp')
+  const minT = get('.min-temp')
+  const feel = get('.feel')
+  const humidity = get('.humidity')
+  const imgFeel = get('.img-container')
 
-  location.innerHTML = data.city
+  location.innerHTML = `${data.city}, ${data.country}`
   mainT.innerHTML = data.temp
-  
-
+  maxT.innerHTML = `Max: ${data.temp_max} °C`
+  minT.innerHTML = `Min: ${data.temp_min} °C`
+  feel.innerHTML = `Feels like: ${data.feels_like} °C`
+  humidity.innerHTML = `Humidity: ${data.humidity}%`
 }
 
+const displayError = (error) => {
+  const errors = document.getElementById('error-container')
+  errors.innerHTML = error
+  errors.style.display = 'block'
+  setTimeout(function() {errors.style.display = 'none'}, 3000)
+}
 
 async function getForecast(location) {
   const key = '1c4c5f09770cdd1d906978e968853e59'
@@ -44,40 +56,15 @@ async function getForecast(location) {
   try {
     const response = await fetch(url)
     if (!response.ok) {
-      return 'Something went wrong :('
+      throw new Error (response.statusText)
     }
     const forecast = await response.json()
     displayForecast(filterForecast(forecast))
     return forecast
   } catch (error) {
-    console.log(error)
+    displayError(error)
     return error
   }
 }
 
 export { getForecast as default };
-
-// base: "stations"
-// clouds: {all: 0}
-// cod: 200
-// coord: {lon: -70.6483, lat: -33.4569}
-// dt: 1622150978
-// id: 3871336
-// main:
-// feels_like: 18.82
-// humidity: 34
-// pressure: 1016
-// temp: 19.89
-// temp_max: 21.23
-// temp_min: 18.81
-// __proto__: Object
-// name: "Santiago"
-// sys: {type: 1, id: 8506, country: "CL", sunrise: 1622115328, sunset: 1622151867}
-// timezone: -14400
-// visibility: 7000
-// weather: Array(1)
-// 0: {id: 800, main: "Clear", description: "clear sky", icon: "01d"}
-// length: 1
-// __proto__: Array(0)
-// wind: {speed: 1.54, deg: 220}
-// __proto__: Object
