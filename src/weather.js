@@ -12,7 +12,7 @@ const filterForecast = (data) => {
     feels_like,
     humidity,
   } = data.main;
-  const { main, description } = data.weather[0]
+  const { main, description, icon } = data.weather[0]
   return {
     city, 
     country,
@@ -23,10 +23,11 @@ const filterForecast = (data) => {
     humidity,
     main,
     description,
+    icon
   }
 }
 
-const displayForecast = (data) => {
+async function displayForecast(data) {
   const location = get('.location')
   const mainT = get('.main-temp')
   const maxT = get('.max-temp')
@@ -36,11 +37,12 @@ const displayForecast = (data) => {
   const imgFeel = get('.img-container')
 
   location.innerHTML = `${data.city}, ${data.country}`
-  mainT.innerHTML = data.temp
+  mainT.innerHTML = `${data.temp} °C`
   maxT.innerHTML = `Max: ${data.temp_max} °C`
   minT.innerHTML = `Min: ${data.temp_min} °C`
   feel.innerHTML = `Feels like: ${data.feels_like} °C`
   humidity.innerHTML = `Humidity: ${data.humidity}%`
+  imgFeel.src = `https://openweathermap.org/img/wn/${data.icon}@2x.png`
 }
 
 const displayError = (error) => {

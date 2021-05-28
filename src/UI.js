@@ -6,6 +6,14 @@ const home = () => {
   const element = create('div')
   element.className = 'main-container'
 
+  const header = create('header')
+  const title = create('h1')
+  const subTitle = create('h2')
+  title.innerHTML = 'Open Weather'
+  subTitle.innerHTML = 'Free forecast for 200,000+ cities on Earth!'
+  header.appendChild(title)
+  header.appendChild(subTitle)
+
   const errorContainer = create('div')
   errorContainer.id = 'error-container'
 
@@ -36,7 +44,7 @@ const home = () => {
   humidity.className = 'humidity'
   forecastContainer.appendChild(humidity)
   
-  const imgFeel = create('div')
+  const imgFeel = create('img')
   imgFeel.className = 'img-container'
   forecastContainer.appendChild(imgFeel)
 
@@ -62,7 +70,8 @@ const home = () => {
     searchForm.elements.location.value = ''
     getForecast(city)
   });
-
+  
+  element.appendChild(header)
   element.appendChild(searchForm)
   element.appendChild(errorContainer)
   element.appendChild(forecastContainer)
