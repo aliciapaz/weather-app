@@ -37,5 +37,8 @@
     "stylelint-scss": "^3.19.0",
     "webpack": "^5.37.1",
     "webpack-cli": "^4.7.0"
+  },
+  "dependencies": {
+    "reseter.css": "^1.1.3"
   }
 }

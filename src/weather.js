@@ -27,8 +27,18 @@ const filterForecast = (data) => {
   }
 }
 
+const titleize = (str) => {
+  return str.replace(
+    /\w\S*/g,
+    function(txt) {
+      return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+    }
+  );
+}
+
 async function displayForecast(data) {
   const location = get('.location')
+  const description = get('.description')
   const mainT = get('.main-temp')
   const maxT = get('.max-temp')
   const minT = get('.min-temp')
@@ -37,6 +47,7 @@ async function displayForecast(data) {
   const imgFeel = get('.img-container')
 
   location.innerHTML = `${data.city}, ${data.country}`
+  description.innerHTML = titleize(data.description)
   mainT.innerHTML = `${data.temp} °C`
   maxT.innerHTML = `Max: ${data.temp_max} °C`
   minT.innerHTML = `Min: ${data.temp_min} °C`

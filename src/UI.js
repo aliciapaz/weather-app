@@ -24,6 +24,10 @@ const home = () => {
   location.className = 'location'
   forecastContainer.appendChild(location)
 
+  const description = create('div')
+  description.className = 'description'
+  forecastContainer.appendChild(description)
+
   const mainT = create('div')
   mainT.className = 'main-temp'
   forecastContainer.appendChild(mainT)
