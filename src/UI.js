@@ -1,68 +1,68 @@
 import getForecast from './weather';
 
 const home = () => {
-  const create = document.createElement.bind(document)
+  const create = document.createElement.bind(document);
 
-  const element = create('div')
-  element.className = 'main-container'
+  const element = create('div');
+  element.className = 'main-container';
 
-  const header = create('header')
-  const title = create('h1')
-  const subTitle = create('h2')
-  title.innerHTML = 'Open Weather'
-  subTitle.innerHTML = 'Free forecast for 200,000+ cities on Earth!'
-  header.appendChild(title)
-  header.appendChild(subTitle)
+  const header = create('header');
+  const title = create('h1');
+  const subTitle = create('h2');
+  title.innerHTML = 'Open Weather';
+  subTitle.innerHTML = 'Free forecast for 200,000+ cities on Earth!';
+  header.appendChild(title);
+  header.appendChild(subTitle);
 
-  const errorContainer = create('div')
-  errorContainer.id = 'error-container'
+  const errorContainer = create('div');
+  errorContainer.id = 'error-container';
 
-  const forecastContainer = create('div')
-  forecastContainer.className = 'forecast-container'
+  const forecastContainer = create('div');
+  forecastContainer.className = 'forecast-container';
 
-  const forecastHeader = create('div')
-  forecastHeader.className = 'forecast-header'
+  const forecastHeader = create('div');
+  forecastHeader.className = 'forecast-header';
 
-  const location = create('div')
-  location.className = 'location'
-  forecastHeader.appendChild(location)
+  const location = create('div');
+  location.className = 'location';
+  forecastHeader.appendChild(location);
 
-  const mainT = create('div')
-  mainT.className = 'main-temp'
-  forecastHeader.appendChild(mainT)
+  const mainT = create('div');
+  mainT.className = 'main-temp';
+  forecastHeader.appendChild(mainT);
 
-  const imgFeel = create('img')
-  imgFeel.className = 'img-container'
-  forecastHeader.appendChild(imgFeel)
+  const imgFeel = create('img');
+  imgFeel.className = 'img-container';
+  forecastHeader.appendChild(imgFeel);
 
-  const description = create('div')
-  description.className = 'description'
-  forecastHeader.appendChild(description)
+  const description = create('div');
+  description.className = 'description';
+  forecastHeader.appendChild(description);
 
-  forecastContainer.appendChild(forecastHeader)
+  forecastContainer.appendChild(forecastHeader);
 
-  const forecastDetails = create('div')
-  forecastDetails.className = 'forecast-details'
+  const forecastDetails = create('div');
+  forecastDetails.className = 'forecast-details';
 
-  const maxT = create('div')
-  maxT.className = 'max-temp'
-  forecastDetails.appendChild(maxT)
+  const maxT = create('div');
+  maxT.className = 'max-temp';
+  forecastDetails.appendChild(maxT);
 
-  const feel = create('div')
-  feel.className = 'feel'
-  forecastDetails.appendChild(feel)
-  
-  const minT = create('div')
-  minT.className = 'min-temp'
-  forecastDetails.appendChild(minT)
-  
-  const humidity = create('div')
-  humidity.className = 'humidity'
-  forecastDetails.appendChild(humidity)
+  const feel = create('div');
+  feel.className = 'feel';
+  forecastDetails.appendChild(feel);
 
-  forecastContainer.appendChild(forecastDetails)
+  const minT = create('div');
+  minT.className = 'min-temp';
+  forecastDetails.appendChild(minT);
 
-  const searchForm = create('form')
+  const humidity = create('div');
+  humidity.className = 'humidity';
+  forecastDetails.appendChild(humidity);
+
+  forecastContainer.appendChild(forecastDetails);
+
+  const searchForm = create('form');
 
   const searchBar = create('input');
   searchBar.setAttribute('type', 'text');
@@ -71,24 +71,24 @@ const home = () => {
   searchBar.setAttribute('maxlength', '50');
 
   const submitBtn = create('input');
-  submitBtn.setAttribute('type', 'submit')
+  submitBtn.setAttribute('type', 'submit');
   submitBtn.setAttribute('value', 'Go');
 
-  searchForm.appendChild(searchBar)
-  searchForm.appendChild(submitBtn)
+  searchForm.appendChild(searchBar);
+  searchForm.appendChild(submitBtn);
 
   searchForm.addEventListener('submit', (e) => {
     e.preventDefault();
     const city = searchForm.elements.location.value;
-    searchForm.elements.location.value = ''
-    getForecast(city)
+    searchForm.elements.location.value = '';
+    getForecast(city);
   });
-  
-  element.appendChild(header)
-  element.appendChild(searchForm)
-  element.appendChild(errorContainer)
-  element.appendChild(forecastContainer)
-  return element
-}
 
-export { home as default};
+  element.appendChild(header);
+  element.appendChild(searchForm);
+  element.appendChild(errorContainer);
+  element.appendChild(forecastContainer);
+  return element;
+};
+
+export { home as default };

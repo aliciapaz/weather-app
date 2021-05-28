@@ -1,17 +1,17 @@
 const footer = () => {
-  const create = document.createElement.bind(document)
+  const create = document.createElement.bind(document);
 
-  const footer = create('footer')
-  const span = create('span')
-  const spanInfo = create('span')
-  
-  span.innerHTML = 'Created by ' + '<a href="http://aliciarojas.me" target="_blank" >Alicia Rojas</a>' + ' © 2021'
-  spanInfo.innerHTML = 'Powered by ' +  '<a href="https://openweathermap.org/api" target="_blank" >OpenWeather API</a>'
+  const footer = create('footer');
+  const span = create('span');
+  const spanInfo = create('span');
 
-  footer.appendChild(span)
-  footer.appendChild(spanInfo)
+  span.innerHTML = 'Created by <a href="http://aliciarojas.me" target="_blank" >Alicia Rojas</a> © 2021';
+  spanInfo.innerHTML = 'Powered by <a href="https://openweathermap.org/api" target="_blank" >OpenWeather API</a>';
 
-  return footer
-}
+  footer.appendChild(span);
+  footer.appendChild(spanInfo);
 
-export {footer as default}
+  return footer;
+};
+
+export { footer as default };
