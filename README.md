@@ -24,6 +24,7 @@ To get a local copy up and running follow these simple example steps.
 
 - Clone this repository using the link above (click on the 'code' button)
 - Open a terminal and `cd` to the cloned repository
+- Go to `src/weather.js` and replace the value of the variable `key` (line 61) with the API key provided
 - Run `npm install`
 - Run `npm run build`
 - Open `dist/index.html` in a live server in your preferred browser 

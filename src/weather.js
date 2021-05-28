@@ -58,7 +58,7 @@ const displayError = (error) => {
 };
 
 async function getForecast(location) {
-  const key; // enter API provided in the form
+  const key = ''; // enter API key provided
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${key}&units=metric`;
   try {
     const response = await fetch(url);
