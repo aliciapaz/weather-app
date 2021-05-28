@@ -41,22 +41,26 @@ const home = () => {
 
   forecastContainer.appendChild(forecastHeader)
 
+  const forecastDetails = create('div')
+  forecastDetails.className = 'forecast-details'
+
   const maxT = create('div')
   maxT.className = 'max-temp'
-  forecastContainer.appendChild(maxT)
+  forecastDetails.appendChild(maxT)
+
+  const feel = create('div')
+  feel.className = 'feel'
+  forecastDetails.appendChild(feel)
   
   const minT = create('div')
   minT.className = 'min-temp'
-  forecastContainer.appendChild(minT)
-  
-  const feel = create('div')
-  feel.className = 'feel'
-  forecastContainer.appendChild(feel)
+  forecastDetails.appendChild(minT)
   
   const humidity = create('div')
   humidity.className = 'humidity'
-  forecastContainer.appendChild(humidity)
-  
+  forecastDetails.appendChild(humidity)
+
+  forecastContainer.appendChild(forecastDetails)
 
   const searchForm = create('form')
 

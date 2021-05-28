@@ -48,10 +48,10 @@ async function displayForecast(data) {
 
   location.innerHTML = `${data.city}, ${data.country}`
   description.innerHTML = titleize(data.description)
-  mainT.innerHTML = `${data.temp} °C`
-  maxT.innerHTML = `Max: ${data.temp_max} °C`
-  minT.innerHTML = `Min: ${data.temp_min} °C`
-  feel.innerHTML = `Feels like: ${data.feels_like} °C`
+  mainT.innerHTML = `${Math.round(data.temp)} °C`
+  maxT.innerHTML = `Max: ${Math.round(data.temp_max)} °C`
+  minT.innerHTML = `Min: ${Math.round(data.temp_min)} °C`
+  feel.innerHTML = `Feels like: ${Math.round(data.feels_like)} °C`
   humidity.innerHTML = `Humidity: ${data.humidity}%`
   imgFeel.src = `https://openweathermap.org/img/wn/${data.icon}@2x.png`
 }

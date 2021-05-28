@@ -7,12 +7,6 @@ body {
   color: #fff;
 }
 
-@media screen and (min-width: 418px) {
-  body {
-    background-size: cover;
-  }
-}
-
 a {
   color: #fff;
   font-weight: 600;
@@ -25,10 +19,52 @@ a:hover {
 
 .main-container header {
   text-align: center;
+  width: 100%;
+}
+
+.main-container h2 {
+  font-size: 1rem;
+}
+
+.main-container form {
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.main-container input {
+  background-color: rgba(2, 10, 34, 0.7);
+  border: 2px solid #ddd;
+}
+
+#error-container {
+  background-color: rgba(243, 23, 23, 0.7);
+  line-height: 3rem;
+  text-align: center;
+}
+
+.forecast-container {
+  margin: 0.6rem auto;
+  width: 90%;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 15px;
+  padding: 0.3rem;
+  height: 18rem;
+}
+
+.forecast-header {
+  font-size: 1.8rem;
+  text-align: center;
+}
+
+.forecast-details {
+  display: grid;
+  -ms-grid-column: 50% 50%;
+  grid-column: 50% 50%;
+  grid-template-columns: 50% 50%;
+  justify-items: center;
 }
 
 footer {
-  padding: 1rem;
   font-size: 0.9rem;
   position: fixed;
   bottom: 0;
@@ -40,4 +76,16 @@ footer {
 
 span {
   margin: 0 auto;
+}
+
+@media screen and (min-width: 418px) {
+  body {
+    background-size: cover;
+  }
+  .main-container h2 {
+    font-size: 2rem;
+  }
+  .forecast-container {
+    width: 40%;
+  }
 }
