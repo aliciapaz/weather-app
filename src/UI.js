@@ -20,17 +20,26 @@ const home = () => {
   const forecastContainer = create('div')
   forecastContainer.className = 'forecast-container'
 
+  const forecastHeader = create('div')
+  forecastHeader.className = 'forecast-header'
+
   const location = create('div')
   location.className = 'location'
-  forecastContainer.appendChild(location)
-
-  const description = create('div')
-  description.className = 'description'
-  forecastContainer.appendChild(description)
+  forecastHeader.appendChild(location)
 
   const mainT = create('div')
   mainT.className = 'main-temp'
-  forecastContainer.appendChild(mainT)
+  forecastHeader.appendChild(mainT)
+
+  const imgFeel = create('img')
+  imgFeel.className = 'img-container'
+  forecastHeader.appendChild(imgFeel)
+
+  const description = create('div')
+  description.className = 'description'
+  forecastHeader.appendChild(description)
+
+  forecastContainer.appendChild(forecastHeader)
 
   const maxT = create('div')
   maxT.className = 'max-temp'
@@ -48,10 +57,6 @@ const home = () => {
   humidity.className = 'humidity'
   forecastContainer.appendChild(humidity)
   
-  const imgFeel = create('img')
-  imgFeel.className = 'img-container'
-  forecastContainer.appendChild(imgFeel)
-
 
   const searchForm = create('form')
 
