@@ -1,4 +1,4 @@
-# Weather App
+# Weather App ⛅
 
 > A weather forecast site built with JavaScript that uses OpenWeatherMap API to retrieve weather data for any location on Earth!
 
@@ -26,11 +26,11 @@ To get a local copy up and running follow these simple example steps.
 - Open a terminal and `cd` to the cloned repository
 - Run `npm install`
 - Run `npm run build`
-- Open `dist/index.html` in a live server in your preferred browser to explore the different sections! 
+- Open `dist/index.html` in a live server in your preferred browser 
 
 ### Usage
 
-- Enter the name of a city and check out the forecast.
+- Enter the name of a city and hit "Go" to check out the forecast.
 - The temperatures are in Celsius degrees.
 
 ### Deployment
