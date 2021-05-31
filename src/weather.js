@@ -63,7 +63,7 @@ const changeBackground = (weather) => {
   }
 }
 
-async function displayForecast(data) {
+async function displayForecast(data, unit) {
   const location = get('.location');
   const description = get('.description');
   const mainT = get('.main-temp');
@@ -73,12 +73,16 @@ async function displayForecast(data) {
   const humidity = get('.humidity');
   const imgFeel = get('.img-container');
 
+  const degree = (units) => {
+    return units === 'metric' ? ' °C' : '°F' 
+  }
+
   location.innerHTML = `${data.city}, ${data.country}`;
   description.innerHTML = titleize(data.description);
-  mainT.innerHTML = `${Math.round(data.temp)} °C`;
-  maxT.innerHTML = `Max: ${Math.round(data.tempMax)} °C`;
-  minT.innerHTML = `Min: ${Math.round(data.tempMin)} °C`;
-  feel.innerHTML = `Feels like: ${Math.round(data.feelsLike)} °C`;
+  mainT.innerHTML = `${Math.round(data.temp)}${degree(unit)}`;
+  maxT.innerHTML = `Max: ${Math.round(data.tempMax)}${degree(unit)}`;
+  minT.innerHTML = `Min: ${Math.round(data.tempMin)}${degree(unit)}`;
+  feel.innerHTML = `Feels like: ${Math.round(data.feelsLike)}${degree(unit)}`;
   humidity.innerHTML = `Humidity: ${data.humidity}%`;
   imgFeel.src = `https://openweathermap.org/img/wn/${data.icon}@2x.png`;
   changeBackground(data.main);
@@ -91,16 +95,16 @@ const displayError = (error) => {
   setTimeout(() => { errors.style.display = 'none'; }, 3000);
 };
 
-async function getForecast(location) {
-  const key = ''; // enter API key provided
-  const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${key}&units=metric`;
+async function getForecast(location, unit) {
+  const key = '1c4c5f09770cdd1d906978e968853e59'; // enter API key provided
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${key}&units=${unit}`;
   try {
     const response = await fetch(url);
     if (!response.ok) {
       throw new Error(response.statusText);
     }
     const forecast = await response.json();
-    displayForecast(filterForecast(forecast));
+    displayForecast(filterForecast(forecast), unit);
     return forecast;
   } catch (error) {
     displayError(error);
