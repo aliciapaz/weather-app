@@ -30,6 +30,39 @@ const titleize = (str) => str.replace(
   (txt) => txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase(),
 );
 
+const changeBackground = (weather) => {
+  const images = {
+    thunderstorm: 'thunderstorm.jpg',
+    drizzle: 'drizzle.jpg',
+    rain: 'rain.jpg',
+    snow: 'snow.jpg',
+    mist: 'mist.jpg',
+    clear: 'clear.jpeg',
+    clouds: 'clouds.jpg'
+  }
+  if (weather == 'Clear') {
+    document.body.style.backgroundImage = `url("../src/img/${images.clear}")`
+  }
+  if (weather == 'Thunderstorm') {
+    document.body.style.backgroundImage = `url("../src/img/${images.thunderstorm}")`
+  }
+  if (weather == 'Drizzle') {
+    document.body.style.backgroundImage = `url("../src/img/${images.drizzle}")`
+  }
+  if (weather == 'Rain') {
+    document.body.style.backgroundImage = `url("../src/img/${images.rain}")`
+  }
+  if (weather == 'Snow') {
+    document.body.style.backgroundImage = `url("../src/img/${images.snow}")`
+  }  
+  if (weather == 'Mist') {
+    document.body.style.backgroundImage = `url("../src/img/${images.mist}")`
+  }  
+  if (weather == 'Clouds') {
+    document.body.style.backgroundImage = `url("../src/img/${images.clouds}")`
+  }
+}
+
 async function displayForecast(data) {
   const location = get('.location');
   const description = get('.description');
@@ -48,6 +81,7 @@ async function displayForecast(data) {
   feel.innerHTML = `Feels like: ${Math.round(data.feelsLike)} °C`;
   humidity.innerHTML = `Humidity: ${data.humidity}%`;
   imgFeel.src = `https://openweathermap.org/img/wn/${data.icon}@2x.png`;
+  changeBackground(data.main);
 }
 
 const displayError = (error) => {
