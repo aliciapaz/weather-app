@@ -30,10 +30,11 @@ a:hover {
   width: -moz-fit-content;
   width: fit-content;
   margin: 0 auto;
+  display: flex;
+  align-items: center;
 }
 
-.main-container input,
-select {
+.main-container input {
   background-color: rgba(2, 10, 34, 0.7);
   border: 2px solid #ddd;
 }
@@ -91,4 +92,57 @@ span {
   .forecast-container {
     width: 40%;
   }
+}
+
+/* Toggle button */
+
+.toggle input { display: none; }
+
+.toggle {
+  position: relative;
+  display: inline-block;
+  width: 80px;
+  height: 30px;
+}
+
+.slider {
+  position: absolute;
+  top: 0; bottom: 0;
+  left: 0; right: 0;
+  cursor: pointer;
+  border: 2px solid #01103a;
+  background-color: rgba(2, 10, 34, 0.7);
+  line-height: 1.4rem;
+}
+
+.slider::before {
+  content: "";
+  width: 50%;
+  height: 100%;
+  position: absolute;
+  top: 0; left: 0;
+  background-color: rgba(255,255,255,.4);
+}
+
+.slider, .slider::before { transition: all 0.2s; }
+.toggle input:checked + .slider {
+  border: 2px solid #01103a;
+  background-color: rgba(2, 10, 34, 0.7);
+}
+.toggle input:checked + .slider::before { left: 50%; }
+
+.slider::after {
+  width: 50%;
+  height: 100%;
+  position: absolute;
+  top: 0; left: 50%;
+  content: "°C";
+  text-align: center;
+  color: #fff;
+  font-size: 22px;
+}
+
+.toggle input:checked + .slider::after {
+  content: "°F";
+  left: 0;
 }

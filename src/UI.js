@@ -70,32 +70,33 @@ const home = () => {
   searchBar.setAttribute('placeholder', 'Enter a city');
   searchBar.setAttribute('maxlength', '50');
 
-  const unitToggle = create('select');
-  unitToggle.setAttribute('name', 'unit');
+  const unitLabel = create('label');
+  unitLabel.className = 'toggle'
 
-  const celsius = create('option');
-  celsius.setAttribute('value', 'metric');
-  celsius.selected = true;
-  celsius.innerHTML = '°C';
-  unitToggle.appendChild(celsius);
+  const unitToggle = create('input')
+  unitToggle.id = 'cToggle'
+  unitToggle.setAttribute('type', 'checkbox');
+  unitToggle.setAttribute('name', 'unit')
 
-  const fahr = create('option');
-  fahr.setAttribute('value', 'imperial');
-  fahr.innerHTML = '°F';
-  unitToggle.appendChild(fahr);
+  const span = create('span')
+  span.className = 'slider'
+  
+  unitLabel.appendChild(unitToggle)
+  unitLabel.appendChild(span)
 
   const submitBtn = create('input');
   submitBtn.setAttribute('type', 'submit');
   submitBtn.setAttribute('value', 'Go');
 
   searchForm.appendChild(searchBar);
-  searchForm.appendChild(unitToggle);
+  searchForm.appendChild(unitLabel);
   searchForm.appendChild(submitBtn);
 
   searchForm.addEventListener('submit', (e) => {
     e.preventDefault();
     const city = searchForm.elements.location.value;
-    const unit = searchForm.elements.unit.value;
+    const unit = searchForm.elements.unit.checked ? 'imperial' : 'metric'
+    console.log(unit)
     searchForm.elements.location.value = '';
     getForecast(city, unit);
   });
