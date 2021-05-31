@@ -27,11 +27,9 @@ a:hover {
 }
 
 .main-container form {
-  width: -moz-fit-content;
-  width: fit-content;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 60% 21% 12%;
+  justify-content: center;
 }
 
 .main-container input {
@@ -89,6 +87,10 @@ span {
     font-size: 2rem;
   }
 
+  .main-container form {
+    grid-template-columns: 24% 7% 7%;
+  }
+
   .forecast-container {
     width: 40%;
   }
@@ -102,17 +104,21 @@ span {
   position: relative;
   display: inline-block;
   width: 80px;
-  height: 30px;
+  height: 44px;
+  line-height: 2rem;
 }
 
 .slider {
   position: absolute;
-  top: 0; bottom: 0;
-  left: 0; right: 0;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
   cursor: pointer;
-  border: 2px solid #01103a;
+  border: 2px solid #ddd;
   background-color: rgba(2, 10, 34, 0.7);
-  line-height: 1.4rem;
+  text-align: center;
+  height: auto;
 }
 
 .slider::before {
@@ -120,13 +126,16 @@ span {
   width: 50%;
   height: 100%;
   position: absolute;
-  top: 0; left: 0;
-  background-color: rgba(255,255,255,.4);
+  top: 0;
+  left: 0;
+  background-color: rgba(255, 255, 255, 0.4);
 }
 
-.slider, .slider::before { transition: all 0.2s; }
+.slider,
+.slider::before { transition: all 0.2s; }
+
 .toggle input:checked + .slider {
-  border: 2px solid #01103a;
+  border: 2px solid #ddd;
   background-color: rgba(2, 10, 34, 0.7);
 }
 .toggle input:checked + .slider::before { left: 50%; }
@@ -135,10 +144,11 @@ span {
   width: 50%;
   height: 100%;
   position: absolute;
-  top: 0; left: 50%;
+  top: 0;
+  left: 50%;
   content: "°C";
   text-align: center;
-  color: #fff;
+  color: #ddd;
   font-size: 22px;
 }
 

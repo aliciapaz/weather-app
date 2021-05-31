@@ -71,18 +71,18 @@ const home = () => {
   searchBar.setAttribute('maxlength', '50');
 
   const unitLabel = create('label');
-  unitLabel.className = 'toggle'
+  unitLabel.className = 'toggle';
 
-  const unitToggle = create('input')
-  unitToggle.id = 'cToggle'
+  const unitToggle = create('input');
+  unitToggle.id = 'cToggle';
   unitToggle.setAttribute('type', 'checkbox');
-  unitToggle.setAttribute('name', 'unit')
+  unitToggle.setAttribute('name', 'unit');
 
-  const span = create('span')
-  span.className = 'slider'
-  
-  unitLabel.appendChild(unitToggle)
-  unitLabel.appendChild(span)
+  const span = create('span');
+  span.className = 'slider';
+
+  unitLabel.appendChild(unitToggle);
+  unitLabel.appendChild(span);
 
   const submitBtn = create('input');
   submitBtn.setAttribute('type', 'submit');
@@ -95,8 +95,8 @@ const home = () => {
   searchForm.addEventListener('submit', (e) => {
     e.preventDefault();
     const city = searchForm.elements.location.value;
-    const unit = searchForm.elements.unit.checked ? 'imperial' : 'metric'
-    console.log(unit)
+    const unit = searchForm.elements.unit.checked ? 'imperial' : 'metric';
+    console.log(unit);
     searchForm.elements.location.value = '';
     getForecast(city, unit);
   });
