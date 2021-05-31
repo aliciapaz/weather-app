@@ -32,7 +32,8 @@ a:hover {
   margin: 0 auto;
 }
 
-.main-container input, select {
+.main-container input,
+select {
   background-color: rgba(2, 10, 34, 0.7);
   border: 2px solid #ddd;
 }
@@ -59,6 +60,7 @@ a:hover {
 
 .forecast-details {
   display: grid;
+  display: -ms-grid;
   grid-template-columns: 50% 50%;
   justify-items: center;
 }

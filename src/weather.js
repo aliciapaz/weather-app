@@ -38,30 +38,30 @@ const changeBackground = (weather) => {
     snow: 'snow.jpg',
     mist: 'mist.jpg',
     clear: 'clear.jpeg',
-    clouds: 'clouds.jpg'
+    clouds: 'clouds.jpg',
+  };
+  if (weather === 'Clear') {
+    document.body.style.backgroundImage = `url("../src/img/${images.clear}")`;
   }
-  if (weather == 'Clear') {
-    document.body.style.backgroundImage = `url("../src/img/${images.clear}")`
+  if (weather === 'Thunderstorm') {
+    document.body.style.backgroundImage = `url("../src/img/${images.thunderstorm}")`;
   }
-  if (weather == 'Thunderstorm') {
-    document.body.style.backgroundImage = `url("../src/img/${images.thunderstorm}")`
+  if (weather === 'Drizzle') {
+    document.body.style.backgroundImage = `url("../src/img/${images.drizzle}")`;
   }
-  if (weather == 'Drizzle') {
-    document.body.style.backgroundImage = `url("../src/img/${images.drizzle}")`
+  if (weather === 'Rain') {
+    document.body.style.backgroundImage = `url("../src/img/${images.rain}")`;
   }
-  if (weather == 'Rain') {
-    document.body.style.backgroundImage = `url("../src/img/${images.rain}")`
+  if (weather === 'Snow') {
+    document.body.style.backgroundImage = `url("../src/img/${images.snow}")`;
   }
-  if (weather == 'Snow') {
-    document.body.style.backgroundImage = `url("../src/img/${images.snow}")`
-  }  
-  if (weather == 'Mist') {
-    document.body.style.backgroundImage = `url("../src/img/${images.mist}")`
-  }  
-  if (weather == 'Clouds') {
-    document.body.style.backgroundImage = `url("../src/img/${images.clouds}")`
+  if (weather === 'Mist') {
+    document.body.style.backgroundImage = `url("../src/img/${images.mist}")`;
   }
-}
+  if (weather === 'Clouds') {
+    document.body.style.backgroundImage = `url("../src/img/${images.clouds}")`;
+  }
+};
 
 async function displayForecast(data, unit) {
   const location = get('.location');
@@ -73,9 +73,7 @@ async function displayForecast(data, unit) {
   const humidity = get('.humidity');
   const imgFeel = get('.img-container');
 
-  const degree = (units) => {
-    return units === 'metric' ? ' °C' : '°F' 
-  }
+  const degree = (units) => (units === 'metric' ? ' °C' : '°F');
 
   location.innerHTML = `${data.city}, ${data.country}`;
   description.innerHTML = titleize(data.description);
