@@ -63,6 +63,11 @@ const changeBackground = (weather) => {
   }
 };
 
+const storeWeather = (forecast, unit) => {
+  forecast.units = unit
+  localStorage.setItem('weather', JSON.stringify(forecast));
+}
+
 async function displayForecast(data, unit) {
   const location = get('.location');
   const description = get('.description');
@@ -94,7 +99,7 @@ const displayError = (error) => {
 };
 
 async function getForecast(location, unit) {
-  const key = ''; // enter API key provided
+  const key = '1c4c5f09770cdd1d906978e968853e59'; // enter API key provided
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${key}&units=${unit}`;
   try {
     const response = await fetch(url);
@@ -103,6 +108,7 @@ async function getForecast(location, unit) {
     }
     const forecast = await response.json();
     displayForecast(filterForecast(forecast), unit);
+    storeWeather(filterForecast(forecast), unit);
     return forecast;
   } catch (error) {
     displayError(error);
