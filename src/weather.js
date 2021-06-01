@@ -41,25 +41,25 @@ const changeBackground = (weather) => {
     clouds: 'clouds.jpg',
   };
   if (weather === 'Clear') {
-    document.body.style.backgroundImage = `url("../src/img/${images.clear}")`;
+    document.body.style.backgroundImage = `url("img${images.clear}")`;
   }
   if (weather === 'Thunderstorm') {
-    document.body.style.backgroundImage = `url("../src/img/${images.thunderstorm}")`;
+    document.body.style.backgroundImage = `url("img/${images.thunderstorm}")`;
   }
   if (weather === 'Drizzle') {
-    document.body.style.backgroundImage = `url("../src/img/${images.drizzle}")`;
+    document.body.style.backgroundImage = `url("img/${images.drizzle}")`;
   }
   if (weather === 'Rain') {
-    document.body.style.backgroundImage = `url("../src/img/${images.rain}")`;
+    document.body.style.backgroundImage = `url("img/${images.rain}")`;
   }
   if (weather === 'Snow') {
-    document.body.style.backgroundImage = `url("../src/img/${images.snow}")`;
+    document.body.style.backgroundImage = `url("img/${images.snow}")`;
   }
   if (weather === 'Mist') {
-    document.body.style.backgroundImage = `url("../src/img/${images.mist}")`;
+    document.body.style.backgroundImage = `url("img/${images.mist}")`;
   }
   if (weather === 'Clouds') {
-    document.body.style.backgroundImage = `url("../src/img/${images.clouds}")`;
+    document.body.style.backgroundImage = `url("img/${images.clouds}")`;
   }
 };
 
