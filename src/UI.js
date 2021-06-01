@@ -96,7 +96,6 @@ const home = () => {
     e.preventDefault();
     const city = searchForm.elements.location.value;
     const unit = searchForm.elements.unit.checked ? 'imperial' : 'metric';
-    console.log(unit);
     searchForm.elements.location.value = '';
     getForecast(city, unit);
   });
