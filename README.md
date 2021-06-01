@@ -31,8 +31,8 @@ To get a local copy up and running follow these simple example steps.
 
 ### Usage
 
-- Enter the name of a city and hit "Go" to check out the forecast.
-- The temperatures are in Celsius degrees.
+- Enter the name of a city, choose °C or °F and hit "Go" to check out the forecast
+- Click on the toggle button to switch between °C and °F
 
 ### Deployment
 
