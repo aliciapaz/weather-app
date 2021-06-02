@@ -1,3 +1,11 @@
+import Clear from './img/clear.jpeg'
+import Thunderstorm from './img/thunderstorm.jpg'
+import Drizzle from './img/drizzle.jpg'
+import Rain from './img/rain.jpg'
+import Snow from './img/snow.jpg'
+import Mist from './img/mist.jpg'
+import Clouds from './img/clouds.jpg'
+
 const get = document.querySelector.bind(document);
 
 const filterForecast = (data) => {
@@ -31,35 +39,27 @@ const titleize = (str) => str.replace(
 );
 
 const changeBackground = (weather) => {
-  const images = {
-    thunderstorm: 'thunderstorm.jpg',
-    drizzle: 'drizzle.jpg',
-    rain: 'rain.jpg',
-    snow: 'snow.jpg',
-    mist: 'mist.jpg',
-    clear: 'clear.jpeg',
-    clouds: 'clouds.jpg',
-  };
   if (weather === 'Clear') {
-    document.body.style.backgroundImage = `url("img${images.clear}")`;
+    document.body.style.backgroundImage = `url("${Clear}")`;
   }
   if (weather === 'Thunderstorm') {
-    document.body.style.backgroundImage = `url("img/${images.thunderstorm}")`;
+    weatherImg.src = Thunderstorm
+    document.body.style.backgroundImage = `url("${Thunderstorm}")`;
   }
   if (weather === 'Drizzle') {
-    document.body.style.backgroundImage = `url("img/${images.drizzle}")`;
+    document.body.style.backgroundImage = `url("${Drizzle}")`;
   }
   if (weather === 'Rain') {
-    document.body.style.backgroundImage = `url("img/${images.rain}")`;
+    document.body.style.backgroundImage = `url("${Rain}")`;
   }
   if (weather === 'Snow') {
-    document.body.style.backgroundImage = `url("img/${images.snow}")`;
+    document.body.style.backgroundImage = `url("${Snow}")`;
   }
   if (weather === 'Mist') {
-    document.body.style.backgroundImage = `url("img/${images.mist}")`;
+    document.body.style.backgroundImage = `url("${Mist}")`;
   }
   if (weather === 'Clouds') {
-    document.body.style.backgroundImage = `url("img/${images.clouds}")`;
+    document.body.style.backgroundImage = `url("${Clouds}")`;
   }
 };
 
