@@ -1,10 +1,10 @@
-import Clear from './img/clear.jpeg'
-import Thunderstorm from './img/thunderstorm.jpg'
-import Drizzle from './img/drizzle.jpg'
-import Rain from './img/rain.jpg'
-import Snow from './img/snow.jpg'
-import Mist from './img/mist.jpg'
-import Clouds from './img/clouds.jpg'
+import Clear from './img/clear.jpeg';
+import Thunderstorm from './img/thunderstorm.jpg';
+import Drizzle from './img/drizzle.jpg';
+import Rain from './img/rain.jpg';
+import Snow from './img/snow.jpg';
+import Mist from './img/mist.jpg';
+import Clouds from './img/clouds.jpg';
 
 const get = document.querySelector.bind(document);
 
@@ -43,7 +43,6 @@ const changeBackground = (weather) => {
     document.body.style.backgroundImage = `url("${Clear}")`;
   }
   if (weather === 'Thunderstorm') {
-    weatherImg.src = Thunderstorm
     document.body.style.backgroundImage = `url("${Thunderstorm}")`;
   }
   if (weather === 'Drizzle') {
