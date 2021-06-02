@@ -1,0 +1,46 @@
+{
+  "name": "weather-app",
+  "version": "1.0.0",
+  "description": "A forecast site that uses OpenWeatherMap API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack",
+    "watch": "webpack --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aliciapaz/weather-app.git"
+  },
+  "keywords": [
+    "async",
+    "weather",
+    "javascript"
+  ],
+  "author": "aliciapaz",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/aliciapaz/weather-app/issues"
+  },
+  "homepage": "https://github.com/aliciapaz/weather-app#readme",
+  "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "css-loader": "^5.2.6",
+    "eslint": "^7.27.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.23.3",
+    "html-loader": "^2.1.2",
+    "html-webpack-plugin": "^5.3.1",
+    "style-loader": "^2.0.0",
+    "stylelint": "^13.13.1",
+    "stylelint-config-standard": "^21.0.0",
+    "stylelint-csstree-validator": "^1.9.0",
+    "stylelint-scss": "^3.19.0",
+    "url-loader": "^4.1.1",
+    "webpack": "^5.37.1",
+    "webpack-cli": "^4.7.0"
+  },
+  "dependencies": {
+    "reseter.css": "^1.1.3"
+  }
+}
